@@ -1,0 +1,8 @@
+/***
+		 * Cod Status de un Libro
+		 * - 1: Pendiente de Aceptacion
+		 * - 2: Acepto por el editor
+		 * - 3: Rechazado por el editor
+		 * - 4: Publicado
+		 * - 5: Rechazado por los revisores
+		 */

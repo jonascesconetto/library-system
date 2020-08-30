@@ -1,0 +1,27 @@
+Rota http
+
+/autor
+  ok : -> GET: todos os autores; DELETAR
+  ok : /{id}/libros -> GET: libros subido pelo autores
+  ok : /{id} -> POST: inserir un libro
+
+/editor
+  ok : GET: todos os editores; DELETAR
+  # ok : /libros -> GET: todos os libros na cola de piendientes
+  ok : /1/{id_libro} -> PUT: acepto libro
+  ok - /2/{id_libro} -> PUT: rechazo libro
+
+/revisor
+  ok : -> GET: todos os revisores; DELETAR
+  ok : /{id}/libros -> GET: todos os libros na cola do revisor para revisar
+
+/public
+  ! ok : /libros -> GET: todos os libros publicados
+  ok : /1/{text} -> GET: pesquisa por titulos
+  ok : /2/{text} -> GET: pesquisa por tematica
+
+  # ->> Esta faltando a validacao de insercao
+  ok : /autor -> POST: inserir un user tipo autor
+  ok : /revisor -> POST: inserir un user tipo revisor
+
+/login

@@ -1,0 +1,34 @@
+<main>
+  <div class="container" style="align-items: center">
+
+    <div class="container container-gray">
+
+      <div class="row">
+        <div class="col-xs-12 col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4">
+
+          <div class="form-signin">
+            <h2 class="form-signin-heading">Login</h2>
+
+
+            <label class="sr-only">E-mail</label>
+            <input type="email" [(ngModel)]="login.usuario" class="form-control" placeholder="Su e-mail"
+                   required="" autofocus="">
+
+            <label class="sr-only">Contrasena</label>
+            <input type="password" [(ngModel)]="login.contrasena" class="form-control" placeholder="Su contrasena" required="">
+
+            <div class="checkbox invisible">
+              <label>
+                <input type="checkbox" value="remember-me"> Remember me
+              </label>
+            </div>
+
+            <button class="btn btn-lg btn-primary btn-block" (click)="loggar()">Entrar</button>
+            <br>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

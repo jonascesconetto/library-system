@@ -1,0 +1,69 @@
+<nav class="navbar navbar-default" ng-controller="NavController">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <a class="navbar-brand" style="padding-top: 12px" ng-href="#!/home">
+        <!--<img style="max-height: 30px" src="../_src/img/logo-chc.png">-->
+        DAE
+      </a>
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+              data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <!--a class="navbar-brand" href="../home/home.php">CHC Project</a-->
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+
+        <!--Versão 1.0 Beta-->
+        <li id="menuHome"><a routerLink="/home" routerLinkActive="active">Home</a></li>
+        <li id="menuBuscaTitulo"><a routerLink="/public/1" routerLinkActive="active">Busqueda Titulo</a></li>
+        <li id="menuBuscaTematica"><a routerLink="/public/2" routerLinkActive="active">Busqueda Tematica</a></li>
+        <li id="menuLibros"><a routerLink="/public/libros" routerLinkActive="active">Libros</a></li>
+        <li id="menuInAutor"><a routerLink="/public/autor" routerLinkActive="active">Inserir Autor</a></li>
+        <li id="menuInRevisor"><a routerLink="/public/revisor" routerLinkActive="active">Inserir Revisor</a></li>
+        <li id="menulogin"><a routerLink="/login" routerLinkActive="active">login</a></li>
+      </ul>
+
+      <ul class="nav navbar-nav navbar-right">
+
+        <!--li>
+          <form class="navbar-form navbar-left" role="search" ng-submit="go('pesquisa');">
+            <div class="input-group">
+              <input id="pesquisaGlobal" name="q" type="search"
+                     class="pesquisa-global form-control alinhado-direita"
+                     placeholder="Pesquisar (Alt + /)" accesskey="/"/>
+              <span class="input-group-btn">
+                <button class="btn btn-default" type="submit">
+                  <i class="fa fa-search"></i>
+                </button>
+              </span>
+            </div>
+          </form>
+        </li-->
+
+        <!--li class="dropdown hidden">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+             aria-expanded="false">
+            <span class="glyphicon glyphicon-bell" aria-hidden="true"></span>
+            <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Notificação 01</a></li>
+            <li><a href="#">Notificação 02</a></li>
+            <li><a href="#">Notificação 03</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">Limpar Notificações</a></li>
+          </ul>
+        </li-->
+
+        <!--li><a>{{getUsuarioLogado()}}</a></li-->
+        <!--li><a routerLink="/config" routerLinkActive="active"><i class="fa fa-sign-out"></i></a></li-->
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>

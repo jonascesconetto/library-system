@@ -1,0 +1,120 @@
+/**SECAO DE PRINTS*/
+
+		//AUTORES
+		System.out.println("\n-----> AUTORES");
+		Collection<Autor> autors = autorDaoInMemory.getAllAutores();
+		for(Autor autor : autors){
+			System.out.println("#\nCodUsuario: " + autor.getCodUsuario() + "\nCodAutor: " + autor.getCodAutor() +  "\nNombre: " + autor.getNombre());
+		}
+		System.out.println("\n-----------------------------------------");
+
+//		//PRINT AUTORES
+//		System.out.println("\n-----> AUTORES AND LIBROS");
+//		Collection<Autor> lista = autorDaoInMemory.getAllAutores();
+//		for(Autor aux : lista){
+//			System.out.println("#\nCodUser: " + aux.getCodUsuario() + "\nCodAutor: " + aux.getCodAutor() +  "\nNombre: " + aux.getNombre());
+//		}
+//		System.out.println("\n-----------------------------------------");
+
+		//EDITORES
+		System.out.println("\n-----> EDITORES");
+		Collection<Editor> editores = editorDaoInMemory.getAllEditores();
+		for(Editor editor : editores){
+			System.out.println("#\nCodUsuario: " + editor.getCodUsuario() + "\nCodEditor: " + editor.getCodEditor() +  "\nNombre: " + editor.getNombre());
+		}
+		System.out.println("\n-----------------------------------------");
+
+		//REVISORES
+		System.out.println("\n-----> REVISORES");
+		Collection<Revisor> listaRevisores = revisorDaoInMemory.getAllRevisores();
+		for(Revisor revisor : listaRevisores){
+			System.out.println("#\nCodUsuario: " + revisor.getCodUsuario() + "\nCodRevisor: " + revisor.getCodRevisor() + "\nNombre: " + revisor.getNombre());
+		}
+		System.out.println("\n-----------------------------------------");
+
+		//PRINT LIBROS SUBIDOS POR AUTOR
+		System.out.println("\n-----> LIBROS SUBIDO POR AUTOR Jonas");
+		Collection<Libro> librosAutorSubidos= autorDaoInMemory.getAllLibrosSubidosAutor(1);
+		for(Libro aux : librosAutorSubidos){
+			System.out.println("#\nCodLibro: " + aux.getCodLibro() + "\nCodAutor: " + aux.getAutor().getCodAutor() +  "\nTitulo: " + aux.getTitulo() + "\nStatus: " + aux.getStatus());
+		}
+
+		System.out.println("\n-----------------------------------------");
+
+		System.out.println("\n-----> LIBROS SUBIDO POR AUTOR Lucas");
+		Collection<Libro> librosAutorSubidos2 = autorDaoInMemory.getAllLibrosSubidosAutor(2);
+		for(Libro aux : librosAutorSubidos2){
+			System.out.println("#\nCodLibro: " + aux.getCodLibro() + "\nCodAutor: " + aux.getAutor().getCodAutor() +  "\nTitulo: " + aux.getTitulo() + "\nStatus: " + aux.getStatus());
+		}
+		System.out.println("\n-----------------------------------------");
+
+		//LIBROS
+		System.out.println("\n-----> LIBROS ");
+		Collection<Libro> libros = libroDaoInMemory.getAllLibros();
+		for(Libro aux : libros){
+			System.out.println("#\nCodLibro: " + aux.getCodLibro() + "\nCodAutor: " + aux.getAutor().getCodAutor() +  "\nTitulo: " + aux.getTitulo() + "\nStatus: " + aux.getStatus());
+		}
+		System.out.println("\n-----------------------------------------");
+
+		//PRINT LIBROS COLA EDITOR
+		System.out.println("\n-----> LIBROS COLA EDITOR");
+		Collection<Libro> librosColaEditor = editorDaoInMemory.verColaLibrosPendientes();
+		for(Libro aux : librosColaEditor){
+			System.out.println("#\nCodLibro: " + aux.getCodLibro() + "\nCodAutor: " + aux.getAutor().getCodAutor() +  "\nTitulo: " + aux.getTitulo() + "\nStatus: " + aux.getStatus());
+		}
+		System.out.println("\n-----------------------------------------");
+
+		//PRINT LIBROS ACEPTOS EDITOR
+		System.out.println("\n-----> LIBROS ACEPTOS EDITOR");
+		Collection<Libro> librosAceptosEditor = editorDaoInMemory.verLibrosAceptos();
+		for(Libro aux : librosAceptosEditor){
+			System.out.println("#\nCodLibro: " + aux.getCodLibro() + "\nCodAutor: " + aux.getAutor().getCodAutor() +  "\nTitulo: " + aux.getTitulo() + "\nStatus: " + aux.getStatus());
+		}
+		System.out.println("\n-----------------------------------------");
+
+		//PRINT LIBROS RECHAZADOS EDITOR
+		System.out.println("\n-----> LIBROS RECHAZADOS EDITOR");
+		Collection<Libro> librosRechazadosEditor = editorDaoInMemory.verLibrosRechazados();
+		for(Libro aux : librosRechazadosEditor){
+			System.out.println("#\nCodLibro: " + aux.getCodLibro() + "\nCodAutor: " + aux.getAutor().getCodAutor()+  "\nTitulo: " + aux.getTitulo() + "\nStatus: " + aux.getStatus());
+		}
+		System.out.println("\n-----------------------------------------");
+
+		//PRINT LIBROS PIENDIENTES DE REVISION
+
+		//PRINT LIBROS ACEPTOS EDITOR
+		System.out.println("\n-----> LIBROS PIENDIENTES REVISION 1");
+		Collection<Libro> librosListaRevisor1 = revisorDaoInMemory.verLibrosPendientesRevision(1);
+		for(Libro aux : librosListaRevisor1){
+			System.out.println("#\nCodLibro: " + aux.getCodLibro() + "\nCodAutor: " + aux.getAutor().getCodAutor() +  "\nTitulo: " + aux.getTitulo() + "\nStatus: " + aux.getStatus());
+		}
+		System.out.println("\n-----------------------------------------");
+
+		System.out.println("\n-----> LIBROS PIENDIENTES REVISION 2");
+		Collection<Libro> librosListaRevisor2 = revisorDaoInMemory.verLibrosPendientesRevision(2);
+		for(Libro aux : librosListaRevisor2){
+			System.out.println("#\nCodLibro: " + aux.getCodLibro() + "\nCodAutor: " + aux.getAutor().getCodAutor() +  "\nTitulo: " + aux.getTitulo() + "\nStatus: " + aux.getStatus());
+		}
+		System.out.println("\n-----------------------------------------");
+
+		System.out.println("\n-----> LIBROS PIENDIENTES REVISION 3");
+		Collection<Libro> librosListaRevisor3 = revisorDaoInMemory.verLibrosPendientesRevision(3);
+		for(Libro aux : librosListaRevisor3){
+			System.out.println("#\nCodLibro: " + aux.getCodLibro() + "\nCodAutor: " + aux.getAutor().getCodAutor() +  "\nTitulo: " + aux.getTitulo() + "\nStatus: " + aux.getStatus());
+		}
+		System.out.println("\n-----------------------------------------");
+
+		System.out.println("\n-----> LIBROS PIENDIENTES REVISION 4");
+		Collection<Libro> librosListaRevisor4 = revisorDaoInMemory.verLibrosPendientesRevision(4);
+		for(Libro aux : librosListaRevisor4){
+			System.out.println("#\nCodLibro: " + aux.getCodLibro() + "\nCodAutor: " + aux.getAutor().getCodAutor() +  "\nTitulo: " + aux.getTitulo() + "\nStatus: " + aux.getStatus());
+		}
+		System.out.println("\n-----------------------------------------");
+
+		//PRINT LIBROS PUBLICADOS
+		System.out.println("\n-----> LIBROS PUBLICADOS");
+		Collection<Libro> librosPublicados= autorDaoInMemory.getAllLibrosPublicados();
+		for(Libro aux : librosPublicados){
+			System.out.println("#\nCodLibro: " + aux.getCodLibro() + "\nCodAutor: " + aux.getAutor().getCodAutor() +  "\nTitulo: " + aux.getTitulo() + "\nStatus: " + aux.getStatus());
+		}
+		System.out.println("\n-----------------------------------------");

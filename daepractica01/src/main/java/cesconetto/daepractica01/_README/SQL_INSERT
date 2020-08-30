@@ -1,0 +1,44 @@
+// Role
+
+INSERT INTO `DAE`.`role` (`role_id`, `role`) VALUES ('1', 'editor');
+INSERT INTO `DAE`.`role` (`role_id`, `role`) VALUES ('2', 'autor');
+INSERT INTO `DAE`.`role` (`role_id`, `role`) VALUES ('3', 'revisor');
+
+// Usuarios
+
+INSERT INTO `DAE`.`usuarios` (`apellido`, `contrasena`, `email`, `fecha_nasc`, `nombre`, `nombre_usuario`) VALUES ('a', 'a', 'a@a.com', '1990-10-10', 'a', 'a');
+INSERT INTO `DAE`.`usuarios` (`apellido`, `contrasena`, `email`, `fecha_nasc`, `nombre`, `nombre_usuario`) VALUES ('b', 'b', 'b@b.com', '1991-10-10', 'b', 'b');
+INSERT INTO `DAE`.`usuarios` (`apellido`, `contrasena`, `email`, `fecha_nasc`, `nombre`, `nombre_usuario`) VALUES ('c', 'c', 'c@c.com', '1992-10-10', 'c', 'c');
+INSERT INTO `DAE`.`usuarios` (`apellido`, `contrasena`, `email`, `fecha_nasc`, `nombre`, `nombre_usuario`) VALUES ('d', 'd', 'd@d.com', '1993-10-10', 'd', 'd');
+INSERT INTO `DAE`.`usuarios` (`apellido`, `contrasena`, `email`, `fecha_nasc`, `nombre`, `nombre_usuario`) VALUES ('e', 'e', 'e@e.com', '1994-10-10', 'e', 'e');
+INSERT INTO `DAE`.`usuarios` (`apellido`, `contrasena`, `email`, `fecha_nasc`, `nombre`, `nombre_usuario`) VALUES ('f', 'f', 'f@f.com', '1995-10-10', 'f', 'f');
+INSERT INTO `DAE`.`usuarios` (`apellido`, `contrasena`, `email`, `fecha_nasc`, `nombre`, `nombre_usuario`) VALUES ('g', 'g', 'g@g.com', '1996-10-10', 'g', 'g');
+INSERT INTO `DAE`.`usuarios` (`apellido`, `contrasena`, `email`, `fecha_nasc`, `nombre`, `nombre_usuario`) VALUES ('editor', 'editor', 'editor@editor', '1989-10-10', 'editor', 'editor');
+
+//Usuario - role
+
+INSERT INTO `DAE`.`usuario_role` (`usuario_id`, `role_id`) VALUES ('8', '1');
+INSERT INTO `DAE`.`usuario_role` (`usuario_id`, `role_id`) VALUES ('1', '2');
+INSERT INTO `DAE`.`usuario_role` (`usuario_id`, `role_id`) VALUES ('2', '2');
+INSERT INTO `DAE`.`usuario_role` (`usuario_id`, `role_id`) VALUES ('3', '2');
+INSERT INTO `DAE`.`usuario_role` (`usuario_id`, `role_id`) VALUES ('4', '3');
+INSERT INTO `DAE`.`usuario_role` (`usuario_id`, `role_id`) VALUES ('5', '3');
+INSERT INTO `DAE`.`usuario_role` (`usuario_id`, `role_id`) VALUES ('6', '3');
+INSERT INTO `DAE`.`usuario_role` (`usuario_id`, `role_id`) VALUES ('7', '3');
+
+// Revisore
+
+INSERT INTO `DAE`.`revisores` (`usuario_id`) VALUES ('4');
+INSERT INTO `DAE`.`revisores` (`usuario_id`) VALUES ('5');
+INSERT INTO `DAE`.`revisores` (`usuario_id`) VALUES ('6');
+INSERT INTO `DAE`.`revisores` (`usuario_id`) VALUES ('7');
+
+// editor
+
+INSERT INTO `DAE`.`editores` (`usuario_id`) VALUES ('8');
+
+// autor
+
+INSERT INTO `DAE`.`autores` (`usuario_id`) VALUES ('1');
+INSERT INTO `DAE`.`autores` (`usuario_id`) VALUES ('2');
+INSERT INTO `DAE`.`autores` (`usuario_id`) VALUES ('3');

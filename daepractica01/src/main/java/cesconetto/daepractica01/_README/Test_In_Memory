@@ -1,0 +1,364 @@
+//		AutorDao autorDao = (AutorDao) ctx.getBean("autorDao");
+//		EditorDao editorDao = (EditorDao) ctx.getBean("editorDao");
+//		RevisorDao revisorDao = (RevisorDao) ctx.getBean("revisorDao");
+
+        //Inserindo usuarios no sistema, ja que ainda no tiene um servicio publico para isso
+
+        AutorDaoInMemory autorDaoInMemory = (AutorDaoInMemory) ctx.getBean("autorDaoInMemory");
+        EditorDaoInMemory editorDaoInMemory = (EditorDaoInMemory) ctx.getBean("editorDaoInMemory");
+        RevisorDaoInMemory revisorDaoInMemory = (RevisorDaoInMemory) ctx.getBean("revisorDaoInMemory");
+        // Libro so tiene CRUD, las operaciones quien haz es los tipos de usuarios
+        LibroDaoInMemory libroDaoInMemory = (LibroDaoInMemory) ctx.getBean("libroDaoInMemory");
+
+        AutorServiceImp autorServiceImp = (AutorServiceImp) ctx.getBean("autorServiceImp");
+        AutorService autorService = (AutorService) ctx.getBean(AutorService.class);
+        EditorService editorService = (EditorService) ctx.getBean(EditorService.class);
+        RevisorService revisorService = (RevisorService) ctx.getBean(RevisorService.class);
+        PublicService publicService = (PublicService) ctx.getBean(PublicService.class);
+
+		//Variable Locales
+        Editor editor = new Editor();
+        Autor jonasAutor = new Autor();
+		Autor lucasAutor = new Autor();
+		Autor giovaniAutor = new Autor();
+		Autor roseliAutor = new Autor();
+
+        Revisor jonasRevisor = new Revisor();
+        List<Libro> listJonas = new ArrayList<>();
+
+        Revisor lucasRevisor = new Revisor();
+        List<Libro> listLucas = new ArrayList<>();
+
+        Revisor giovaniRevisor = new Revisor();
+        List<Libro> listGiovani = new ArrayList<>();
+
+        Revisor roseliRevisor = new Revisor();
+        List<Libro> listRoseli = new ArrayList<>();
+
+
+        SimpleDateFormat formatador = new SimpleDateFormat("yyyy-MM-dd");
+
+        Date dataRevJonas = new Date();
+        Date dataRevLucas = new Date();
+        Date dataRevGio = new Date();
+        Date dataRevRose = new Date();
+
+        try {
+            dataRevJonas = formatador.parse("2017-10-10");
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            dataRevLucas = formatador.parse("2017-10-20");
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            dataRevGio = formatador.parse("2017-10-30");
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            dataRevRose = formatador.parse("2017-10-20");
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+        Libro lTest1 = new Libro();
+        Libro lTest2 = new Libro();
+        Libro lTest3 = new Libro();
+		Libro lTest4 = new Libro();
+		Libro lTest5 = new Libro();
+		Libro lTest6 = new Libro();
+        Libro lTest7 = new Libro();
+        Libro lTest8 = new Libro();
+
+        /**INSERINDO EDITOR*/
+		editor.setCodUsuario(1);
+		editor.setCodEditor(1);
+		editor.setNombre("Editor");
+		editorDaoInMemory.insertEditor(editor);
+
+		/**INSERINDO AUTOR*/
+		jonasAutor.setCodUsuario(2);
+        jonasAutor.setCodAutor(1);
+        jonasAutor.setNombre("Jonas Cesconetto");
+
+        //publicService.insertUsuario(jonasAutor, 2);
+
+        autorDaoInMemory.insertAutor(jonasAutor);
+
+		lucasAutor.setCodUsuario(3);
+		lucasAutor.setCodAutor(2);
+		lucasAutor.setNombre("Lucas Cesconetto");
+
+		autorDaoInMemory.insertAutor(lucasAutor);
+
+        giovaniAutor.setCodUsuario(4);
+        giovaniAutor.setCodAutor(3);
+        giovaniAutor.setNombre("Giovani Tolentino Cesconetto");
+
+        autorDaoInMemory.insertAutor(giovaniAutor);
+
+        roseliAutor.setCodUsuario(5);
+        roseliAutor.setCodAutor(4);
+        roseliAutor.setNombre("Roseli Tondorf Cesconetto");
+
+        autorDaoInMemory.insertAutor(roseliAutor);
+
+		/**INSERINDO REVISOR*/
+
+        Date hoje = new Date();
+        hoje.getTime();
+
+
+        jonasRevisor.setCodUsuario(2);
+		jonasRevisor.setCodRevisor(1);
+        jonasRevisor.setNombre("Jonas");
+        jonasRevisor.setFechaUltimoLibroRevisado(dataRevJonas);
+		jonasRevisor.setLibrosPiendiente(listJonas);
+
+        //publicService.insertUsuario(jonasRevisor, 3);
+		revisorDaoInMemory.insertRevisor(jonasRevisor);
+
+        lucasRevisor.setCodUsuario(3);
+		lucasRevisor.setCodRevisor(2);
+        lucasRevisor.setNombre("Lucas");
+        lucasRevisor.setFechaUltimoLibroRevisado(dataRevLucas);
+		lucasRevisor.setLibrosPiendiente(listLucas);
+
+		revisorDaoInMemory.insertRevisor(lucasRevisor);
+
+		giovaniRevisor.setCodUsuario(4);
+		giovaniRevisor.setCodRevisor(3);
+		giovaniRevisor.setNombre("Giovani");
+		giovaniRevisor.setFechaUltimoLibroRevisado(dataRevGio);
+        giovaniRevisor.setLibrosPiendiente(listGiovani);
+
+        revisorDaoInMemory.insertRevisor(giovaniRevisor);
+
+		roseliRevisor.setCodUsuario(5);
+		roseliRevisor.setCodRevisor(4);
+		roseliRevisor.setNombre("Roseli");
+		roseliRevisor.setFechaUltimoLibroRevisado(dataRevRose);
+		roseliRevisor.setLibrosPiendiente(listRoseli);
+
+		revisorDaoInMemory.insertRevisor(roseliRevisor);
+
+		/**INSERINDO LIBRO*/
+
+		// Jonas
+		lTest1.setCodLibro(1);
+		lTest1.setAutor(jonasAutor);
+		lTest1.setTitulo("Jonas Cesconetto: Auto Biografia");
+		lTest1.setTematica("Biografia");
+
+		autorServiceImp.subirLibro(lTest1, jonasAutor);
+
+		lTest2.setCodLibro(2);
+		lTest2.setAutor(jonasAutor);
+		lTest2.setTitulo("Spring Framework: do inicio ao fim");
+		lTest2.setTematica("Informatica");
+
+		autorServiceImp.subirLibro(lTest2, jonasAutor);
+
+        // Lucas
+		lTest3.setCodLibro(3);
+		lTest3.setAutor(lucasAutor);
+		lTest3.setTitulo("Lucas: Um estranho no Formigueiro");
+		lTest3.setTematica("Aventura");
+
+		autorServiceImp.subirLibro(lTest3, lucasAutor);
+
+        lTest4.setCodLibro(4);
+        lTest4.setAutor(lucasAutor);
+        lTest4.setTitulo("Plantas em meio aquatico");
+        lTest4.setTematica("Biologia");
+
+        autorServiceImp.subirLibro(lTest4, lucasAutor);
+
+        // Giovani
+        lTest5.setCodLibro(5);
+        lTest5.setAutor(giovaniAutor);
+        lTest5.setTitulo("Como ser considerado um assador de primeira");
+        lTest5.setTematica("Guia");
+
+        autorServiceImp.subirLibro(lTest5, giovaniAutor);
+
+        lTest6.setCodLibro(6);
+        lTest6.setAutor(giovaniAutor);
+        lTest6.setTitulo("Do boteco para micro-cervegeiro");
+        lTest6.setTematica("Guia");
+
+        autorServiceImp.subirLibro(lTest6, giovaniAutor);
+
+        // Roseli
+        lTest7.setCodLibro(7);
+        lTest7.setAutor(roseliAutor);
+        lTest7.setTitulo("Entendendo seu funcionario, a base de qualquer empresa");
+        lTest7.setTematica("Administracao");
+
+        autorServiceImp.subirLibro(lTest7, roseliAutor);
+
+        lTest8.setCodLibro(8);
+        lTest8.setAutor(roseliAutor);
+        lTest8.setTitulo("Como um empresario deve se comportar mediante seus funcionarios");
+        lTest8.setTematica("Guia");
+
+        autorServiceImp.subirLibro(lTest8, roseliAutor);
+
+        /**OPERSCIONES AUTOR*/
+
+        /// Atualization of book
+        //lTest.setTitulo("Jonas Cesconetto: Descobrindo el SPRING");
+        //lTest.setTematica("Java Programming");
+
+        //autorServiceImp.updateLibro(lTest, lucasAutor);
+        //autorServiceImp.updateLibro(lTest, jonasAutor);
+
+        /// Remove
+        //autorServiceImp.removeLibro(lTest, aTest2);
+        //autorServiceImp.removeLibro(lTest, aTest);
+
+		/**OPERACOES EDITOR*/
+        editorService.rechazarLibro(lTest1);
+        editorService.aceptarLibro(lTest2);
+        editorService.aceptarLibro(lTest3);
+        editorService.aceptarLibro(lTest4);
+        editorService.aceptarLibro(lTest5);
+        editorService.aceptarLibro(lTest6);
+        editorService.aceptarLibro(lTest7);
+        editorService.aceptarLibro(lTest8);
+		//editorDaoInMemory.rechazarLibro(2);
+
+        /**OPERACOES Revisor*/
+        revisorService.revisarLibro(lTest2, 3.0, lucasRevisor);
+
+        revisorService.revisarLibro(lTest5, 1.5, roseliRevisor);
+        revisorService.revisarLibro(lTest5, 4.5, jonasRevisor);
+        revisorService.revisarLibro(lTest5, 3.0, lucasRevisor);
+
+        revisorService.revisarLibro(lTest7, 3.0, giovaniRevisor);
+        revisorService.revisarLibro(lTest7, 4.5, jonasRevisor);
+        revisorService.revisarLibro(lTest7, 5.0, lucasRevisor);
+
+        /**PRINTS*/
+
+        /// TODOD LIBROS
+        System.out.println("\n-----> TODOS LOS LIBROS EN SISTEMA");
+        Collection<Libro> libros = libroDaoInMemory.getAllLibros();
+        for(Libro aux : libros){
+            System.out.println(
+                    "#\nCodLibro: " + aux.getCodLibro() +
+                            "\nCod. Autor: " + aux.getAutor().getCodAutor() +
+                            "\nNome: " + aux.getAutor().getNombre() +
+                            "\nTitulo: " + aux.getTitulo() +
+                            "\nStatus: " + aux.getStatus() +
+                            "\nNota: " + aux.getNotaAvaliacion()
+            );
+        }
+        System.out.println("\n-----------------------------------------");
+
+        /// PRINT LIBROS COLA EDITOR
+        System.out.println("\n-----> LIBROS COLA EDITOR");
+        Collection<Libro> librosColaEditor = editorService.verColaLibrosPendientes();
+        for(Libro aux : librosColaEditor){
+            System.out.println(
+                    "#\nCodLibro: " + aux.getCodLibro() +
+                            "\nCod. Autor: " + aux.getAutor().getCodAutor() +
+                            "\nNome: " + aux.getAutor().getNombre() +
+                            "\nTitulo: " + aux.getTitulo() +
+                            "\nStatus: " + aux.getStatus() +
+                            "\nNota: " + aux.getNotaAvaliacion()
+            );
+        }
+        System.out.println("\n-----------------------------------------");
+
+        /// PRINT LIBROS ACEPTOS EDITOR
+        System.out.println("\n-----> LIBROS ACEPTOS EDITOR");
+        Collection<Libro> librosAceptosEditor = editorService.verLibrosAceptos();
+        for(Libro aux : librosAceptosEditor){
+            System.out.println(
+                    "#\nCodLibro: " + aux.getCodLibro() +
+                            "\nCod. Autor: " + aux.getAutor().getCodAutor() +
+                            "\nNome: " + aux.getAutor().getNombre() +
+                            "\nTitulo: " + aux.getTitulo() +
+                            "\nStatus: " + aux.getStatus() +
+                            "\nNota: " + aux.getNotaAvaliacion()
+            );
+        }
+        System.out.println("\n-----------------------------------------");
+
+        /// PRINT LIBROS RECHAZADOS EDITOR
+        System.out.println("\n-----> LIBROS RECHAZADOS EDITOR");
+        Collection<Libro> librosRechazadosEditor = editorService.verLibrosRechazados();
+        for(Libro aux : librosRechazadosEditor){
+            System.out.println(
+                    "#\nCodLibro: " + aux.getCodLibro() +
+                            "\nCod. Autor: " + aux.getAutor().getCodAutor() +
+                            "\nNome: " + aux.getAutor().getNombre() +
+                            "\nTitulo: " + aux.getTitulo() +
+                            "\nStatus: " + aux.getStatus() +
+                            "\nNota: " + aux.getNotaAvaliacion()
+            );
+        }
+        System.out.println("\n-----------------------------------------");
+
+        // PRINT REVISORES
+        System.out.println("\n-----> Lista de Libros Piendientes de Revision del Revisor " + lucasRevisor.getNombre());
+        Collection<Libro> librosLRevsisoLucas = revisorService.verLibrosPendientesRevision(lucasRevisor);
+        for(Libro aux : librosLRevsisoLucas){
+            System.out.println(
+                    "#\nTitulo: " + aux.getTitulo() +
+                            "\nTematica: " + aux.getTematica()
+            );
+        }
+        System.out.println("\n-----------------------------------------");
+
+        System.out.println("\n-----> Lista de Libros Piendientes de Revision del Revisor " + jonasRevisor.getNombre());
+        Collection<Libro> librosLRevsisoJonas = revisorService.verLibrosPendientesRevision(jonasRevisor);
+        for(Libro aux : librosLRevsisoJonas){
+            System.out.println(
+                    "#\nTitulo: " + aux.getTitulo() +
+                            "\nTematica: " + aux.getTematica()
+            );
+        }
+        System.out.println("\n-----------------------------------------");
+
+        System.out.println("\n-----> Lista de Libros Piendientes de Revision del Revisor " + giovaniRevisor.getNombre());
+        Collection<Libro> librosLRevsisoGio = revisorService.verLibrosPendientesRevision(giovaniRevisor);
+        for(Libro aux : librosLRevsisoGio){
+            System.out.println(
+                    "#\nTitulo: " + aux.getTitulo() +
+                            "\nTematica: " + aux.getTematica()
+            );
+        }
+        System.out.println("\n-----------------------------------------");
+
+        System.out.println("\n-----> Lista de Libros Piendientes de Revision del Revisor " + roseliRevisor.getNombre());
+        Collection<Libro> librosLRevsisoRose = revisorService.verLibrosPendientesRevision(roseliRevisor);
+        for(Libro aux : librosLRevsisoRose){
+            System.out.println(
+                    "#\nTitulo: " + aux.getTitulo() +
+                            "\nTematica: " + aux.getTematica()
+            );
+        }
+        System.out.println("\n-----------------------------------------");
+
+
+        /// LIBROS PUBLICADOS
+        System.out.println("\n-----> LIBROS PUBLICADOS");
+        Collection<Libro> librosPublicados = publicService.getAllLibrosPublicados();
+        for(Libro aux : librosPublicados){
+            System.out.println(
+                    "#\nCodLibro: " + aux.getCodLibro() +
+                            "\nCod. Autor: " + aux.getAutor().getCodAutor() +  " Nome: " + aux.getAutor().getNombre() +
+                            "\nTitulo: " + aux.getTitulo() +
+                            "\nStatus: " + aux.getStatus() +
+                            "\nNota: " + aux.getNotaAvaliacion()
+            );
+        }
+        System.out.println("\n-----------------------------------------");

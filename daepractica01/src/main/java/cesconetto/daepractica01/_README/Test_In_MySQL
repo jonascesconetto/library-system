@@ -1,0 +1,50 @@
+//		PublicService publicService = (PublicService) ctx.getBean(PublicService.class);
+//		UsuarioDaoJpaMySQL usuarioDaoJpaMySQL = (UsuarioDaoJpaMySQL) ctx.getBean("usuarioDaoJpaMySQL");
+//		AutorDaoJpaMySQL autorDaoJpaMySQL = (AutorDaoJpaMySQL) ctx.getBean("autorDaoJpaMySQL");
+//		RevisorDaoJpaMySQL revisorDaoJpaMySQL = (RevisorDaoJpaMySQL) ctx.getBean("revisorDaoJpaMySQL");
+//		private int codUsuario;
+//		private String token;
+//		private String nombre;
+//		private String apellido;
+//		private Date fechaNasc;
+//		private String email;
+//		private String nombreUsuario;//login
+//		private String contrasena;//password
+//		private int roles;
+
+//		Date hoje = new Date();
+//		hoje.getTime();
+
+//		Autor a = new Autor();
+//		a.setNombre("Teste");
+//		a.setApellido("test");
+//		a.setEmail("test@gmail.com");
+//		a.setNombreUsuario("test");
+//		a.setContrasena("test");
+//		a.setFechaNasc(hoje);
+		//autorDaoJpaMySQL.removeAutorByCod(1);
+
+//		Revisor r = new Revisor();
+//		r.setNombre("Teste212345");
+//		r.setApellido("test123455");
+//		r.setEmail("test200@gmail.com");
+//		r.setNombreUsuario("test200");
+//		r.setContrasena("test123456");
+//		r.setFechaNasc(hoje);
+		//revisorDaoJpaMySQL.updateRevisor(r);
+		//revisorDaoJpaMySQL.removeRevisorByCod(3);
+		//usuarioDaoJpaMySQL.insertUsuario(a);
+		//usuarioDaoJpaMySQL.updateUsuario(a);
+		//publicService.insertUsuario(a, 2);
+
+		/// TODOD LIBROS
+          //		System.out.println("\n-----> TODOS LOS LIBROS EN SISTEMA");
+          //
+          //		Revisor aux = revisorDaoJpaMySQL.getRevisorByCod(2);
+          //
+          //		System.out.println(
+          //				"#\nCod: " + aux.getCodUsuario() +
+          //						"\nNome: " + aux.getNombre() + " " + aux.getApellido()
+          //		);
+//
+//		System.out.println("\n-----------------------------------------");
